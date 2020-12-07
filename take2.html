@@ -1,0 +1,75 @@
+<script>
+
+   /* Writing out eventual results strings  */
+    let paperBeats = 'Paper beats Rock.';
+    let scissorsBeats = 'Scissors beats Paper.';
+    let rockBeats = 'Rock beats Scissors.';
+    let youWin = "You win! ";
+    let youLose = "You lose! ";
+    let youTie = "It's a tie.";
+    
+
+/* Creating a random computerPlay generator */
+    function computerPlay() {
+        let randomPlay = Math.random();
+
+        if (randomPlay <= 0.333) {
+            return "rock";
+        } else if (randomPlay <= 0.666) {
+            return "paper";
+        } else { return "scissors" }
+    }
+
+    let user = 0;
+        let comp = 0;
+
+   function playRound() {
+
+        let playerSelectionLC = prompt('Rock, paper, or scissors?').toLowerCase();
+        const computerSelection = computerPlay();
+      
+
+        if (playerSelectionLC === computerSelection) {
+            alert(youTie);
+        } else if (playerSelectionLC === 'rock') {
+            if (computerSelection === 'scissors') {
+                alert(youWin + rockBeats);
+                user++; }
+            else {
+                alert(youLose + paperBeats);
+                comp++; }
+
+        } else if (playerSelectionLC === 'scissors') {
+            if (computerSelection === 'paper') {
+            alert(youWin + scissorsBeats);
+            user++; }
+            else { alert(youLose + rockBeats); 
+            comp++; }
+
+        } else if (playerSelectionLC === 'paper') {
+            if (computerSelection === 'rock') {
+            alert(youWin + paperBeats);
+            user++; }
+            else { alert(youLose + scissorsBeats);
+            comp++; }
+        } else { alert('You must enter either "Rock", "Paper", or "Scissors"!') }
+        }
+
+
+    function game() {
+        playRound();
+        alert('Your points: ' + user + ". Computer's Points: " + comp + '.');
+        playRound();
+        alert('Your points: ' + user + ". Computer's Points: " + comp + '.');
+        playRound();
+        alert('Your points: ' + user + ". Computer's Points: " + comp + '.');
+        playRound();
+        alert('Your points: ' + user + ". Computer's Points: " + comp + '.');
+        playRound();
+        alert('Your points: ' + user + ". Computer's Points: " + comp + '.');
+    }
+
+game();
+
+
+</script>
